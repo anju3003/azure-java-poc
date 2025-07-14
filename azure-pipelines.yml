@@ -8,6 +8,7 @@ variables:
   azureSubscription: 'AzureConnection'    # Your service connection name
   appName: 'java-poc-app'                 # Your Azure App Service name
   package: '$(System.DefaultWorkingDirectory)/target/*.jar'
+  SONAR_TOKEN: $(SONAR_TOKEN)
 
 steps:
 - task: Maven@4
