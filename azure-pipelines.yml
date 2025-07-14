@@ -13,7 +13,12 @@ steps:
 - task: Maven@4
   inputs:
     mavenPomFile: 'pom.xml'
-    goals: 'package'
+    goals: >
+      clean verify sonar:sonar
+    options: >
+      -Dsonar.projectKey=azure-java-poc
+      -Dsonar.host.url=http://localhost:9000
+      -Dsonar.login=$(SONAR_TOKEN)
     javaHomeOption: 'JDKVersion'
     jdkVersionOption: '17'
     publishJUnitResults: true
