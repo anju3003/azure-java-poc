@@ -5,7 +5,6 @@ pool:
   name: Default
 
 variables:
-  -group: SonarQubeVars
   azureSubscription: 'AzureConnection'    # Your service connection name
   appName: 'java-poc-app'                 # Your Azure App Service name
   package: '$(System.DefaultWorkingDirectory)/target/*.jar'
@@ -18,7 +17,7 @@ steps:
     goals: >
       clean verify sonar:sonar
     options: >
-      -Dsonar.projectKey=azure-java-poc
+      -Dsonar.projectKey=azure-Java-poc
       -Dsonar.host.url=http://localhost:9000
       -Dsonar.login=$(SONAR_TOKEN)
     javaHomeOption: 'JDKVersion'
